@@ -41,7 +41,7 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - python: "3.11"
+          - python: "3.12"
             pyodide-build: "0.26.1"
             node: "18"
     steps:
