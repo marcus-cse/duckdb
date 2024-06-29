@@ -41,11 +41,8 @@ jobs:
       fail-fast: false
       matrix:
         version:
-          - python: "3.10"
-            pyodide-build: "0.22.1"
-            node: "16"
           - python: "3.11"
-            pyodide-build: "0.25.1"
+            pyodide-build: "0.26.1"
             node: "18"
     steps:
       - uses: actions/checkout@v4
@@ -128,11 +125,3 @@ jobs:
           if-no-files-found: error
           path: |
             ./tools/pythonpkg/dist/*.whl
-
-      - name: Deploy
-        env:
-          AWS_ACCESS_KEY_ID: ${{ secrets.S3_DUCKDB_STAGING_ID }}
-          AWS_SECRET_ACCESS_KEY: ${{ secrets.S3_DUCKDB_STAGING_KEY }}
-        shell: bash
-        run: |
-          ./scripts/upload-assets-to-staging.sh pyodide tools/pythonpkg/dist/*.whl
