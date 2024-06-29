@@ -70,7 +70,7 @@ jobs:
         with:
           python-version: ${{ matrix.version.python }}
 
-      - run: pip install 'pyodide-build==${{ matrix.version.pyodide-build }}' 'pydantic<2'
+      - run: pip install 'pyodide-build==${{ matrix.version.pyodide-build }}' 'pydantic<3'
 
       - name: get emscripten version
         id: emscripten-version
